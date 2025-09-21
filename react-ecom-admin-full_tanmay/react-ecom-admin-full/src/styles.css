@@ -1,0 +1,82 @@
+
+:root{
+  --bg:#0b0f17;
+  --panel:#121826;
+  --muted:#7a8aa0;
+  --primary:#2dd4bf;
+  --primary-700:#0ea5a6;
+  --danger:#ef4444;
+  --success:#22c55e;
+  --text:#e5e7eb;
+  --card:#0f1522;
+  --border:#1f2937;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0; font-family:Inter,system-ui, -apple-system, Segoe UI, Roboto, Arial; background:linear-gradient(135deg,#0b0f17 0%,#0d1320 55%,#0a1322 100%); color:var(--text)}
+a{color:inherit; text-decoration:none}
+.container{max-width:1200px; margin:0 auto; padding:24px}
+.app{display:flex; min-height:100%}
+.sidebar{
+  width:260px; background:linear-gradient(180deg,#0f172a 0%, #0b1220 100%); border-right:1px solid var(--border);
+  padding:20px; position:sticky; top:0; height:100vh;
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px}
+.brand .logo{width:32px; height:32px; display:grid; place-items:center; border-radius:10px; background:linear-gradient(135deg, #22d3ee, #a78bfa)}
+.nav{margin-top:24px; display:flex; flex-direction:column; gap:6px}
+.nav a{
+  padding:10px 12px; border-radius:10px; display:flex; align-items:center; gap:10px;
+  color:#cbd5e1; border:1px solid transparent;
+}
+.nav a.active, .nav a:hover{
+  background:linear-gradient(90deg,rgba(45,212,191,.12), rgba(67,56,202,.12));
+  border-color:#223049
+}
+.main{flex:1; display:flex; flex-direction:column}
+.header{
+  display:flex; align-items:center; justify-content:space-between; padding:16px 24px;
+  border-bottom:1px solid var(--border); background:rgba(18,24,38,.6); backdrop-filter:blur(8px);
+  position:sticky; top:0; z-index:5;
+}
+.card{
+  background:radial-gradient(1200px 400px at 10% -20%, rgba(45,212,191,.10), transparent), var(--panel);
+  border:1px solid var(--border); border-radius:14px; padding:18px; box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+.grid{display:grid; gap:16px}
+.grid.cols-2{grid-template-columns: repeat(2, minmax(0,1fr));}
+.grid.cols-3{grid-template-columns: repeat(3, minmax(0,1fr));}
+@media (max-width: 960px){ .grid.cols-2,.grid.cols-3{grid-template-columns:1fr} .sidebar{display:none} }
+
+.btn{
+  border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; letter-spacing:.2px;
+  background:linear-gradient(180deg,#1dd6c8,#14b8a6); color:#05201b; box-shadow:0 6px 20px rgba(20,184,166,.25);
+}
+.btn:hover{ filter:brightness(1.05) }
+.btn.secondary{
+  background:linear-gradient(180deg,#1f2937,#111827); color:#cbd5e1; border:1px solid var(--border); box-shadow:none;
+}
+.btn.danger{ background:linear-gradient(180deg,#ef4444,#b91c1c); color:#fff; }
+
+.input, .select, .textarea{
+  width:100%; padding:12px 14px; border-radius:10px; background:#0b1220; color:#e5e7eb;
+  border:1px solid #1f2937; outline:none;
+}
+.input:focus, .select:focus, .textarea:focus{ border-color:#2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.2) }
+.label{font-size:.9rem; color:#a8b1c7; margin-bottom:6px; display:block}
+.row{display:grid; gap:14px; grid-template-columns:1fr 1fr}
+@media (max-width: 800px){ .row{grid-template-columns:1fr} }
+.table{width:100%; border-collapse:separate; border-spacing:0 8px}
+.table thead th{ text-align:left; font-size:.85rem; color:#9fb0c7; font-weight:600; padding:8px 12px }
+.table tbody tr{ background:var(--card); border:1px solid var(--border) }
+.table tbody td{ padding:12px; color:#dbe2ec }
+.badge{ padding:4px 8px; border-radius:999px; font-size:.75rem; border:1px solid var(--border); display:inline-block }
+.badge.ok{ background:rgba(34,197,94,.12); color:#86efac; border-color:rgba(34,197,94,.35) }
+.badge.warn{ background:rgba(251,191,36,.12); color:#fde68a; border-color:rgba(251,191,36,.35) }
+.badge.muted{ background:rgba(125,211,252,.08); color:#93c5fd }
+.toolbar{ display:flex; align-items:center; gap:10px; justify-content:space-between; margin-bottom:16px }
+.search{ padding:10px 12px; border-radius:10px; background:#0b1220; border:1px solid #1f2937; color:#cbd5e1; width:280px }
+.kpi{ display:flex; align-items:center; gap:12px }
+.kpi .num{ font-size:1.6rem; font-weight:800 }
+.kpi .muted{ color:#93a0b2; font-size:.85rem }
+.footer{padding:18px 24px; color:#6b7280; border-top:1px solid var(--border); text-align:center}
+.link{ color:#93c5fd }
